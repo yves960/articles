@@ -122,22 +122,134 @@ OpenCode 的配置目录在 `~/.config/opencode/`。
 
 这是我配置的 6 个插件，逐个解释：
 
-#### 1. oh-my-opencode：主题和美化
+#### 1. oh-my-opencode：最强的 Agent Harness
 
-让终端界面更好看，支持自定义 agent 名称和分类。
+**这是最重要的插件。**
+
+oh-my-opencode（也叫 oh-my-openagent）是一个完整的 Agent Harness 系统，把 OpenCode 变成一个真正的"AI 开发团队"。
+
+**它有多强？**
+
+Anthropic 曾经因为 oh-my-opencode 封锁了 OpenCode。因为它的效果太好，威胁到了 Claude Code 的商业利益。
+
+用户评价：
+> "If Claude Code does in 7 days what a human does in 3 months, Sisyphus does it in 1 hour."
+
+> "Knocked out 8000 eslint warnings with Oh My Opencode, just in a day"
+
+> "It made me cancel my Cursor subscription."
+
+**核心特性：**
+
+| 特性 | 说明 |
+|------|------|
+| Discipline Agents | 多 Agent 协作系统 |
+| ultrawork (ulw) | 一键激活所有 Agent |
+| IntentGate | 分析用户真实意图 |
+| Hash-Anchored Edit | 基于 hash 的精准编辑 |
+| LSP + AST-Grep | IDE 级代码智能 |
+| Ralph Loop | 自循环直到完成 |
+| Todo Enforcer | 强制完成任务 |
+
+**我的配置：**
 
 ```json
 // oh-my-opencode.json
 {
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": { "model": "minimax/MiniMax-M2.7" },
     "hephaestus": { "model": "minimax/MiniMax-M2.7" },
-    "oracle": { "model": "minimax/MiniMax-M2.7" }
+    "oracle": { "model": "minimax/MiniMax-M2.7" },
+    "prometheus": { "model": "minimax/MiniMax-M2.7" },
+    "metis": { "model": "minimax/MiniMax-M2.7" },
+    "atlas": { "model": "minimax/MiniMax-M2.7" },
+    "momus": { "model": "minimax/MiniMax-M2.7" },
+    "explore": { "model": "minimax/MiniMax-M2.7" },
+    "librarian": { "model": "minimax/MiniMax-M2.7" },
+    "multimodal-looker": { "model": "minimax/MiniMax-M2.7" }
+  },
+  "categories": {
+    "visual-engineering": { "model": "minimax/MiniMax-M2.7" },
+    "ultrabrain": { "model": "minimax/MiniMax-M2.7" },
+    "deep": { "model": "minimax/MiniMax-M2.7" },
+    "artistry": { "model": "minimax/MiniMax-M2.7" },
+    "quick": { "model": "minimax/MiniMax-M2.7" },
+    "unspecified-low": { "model": "minimax/MiniMax-M2.7" },
+    "unspecified-high": { "model": "minimax/MiniMax-M2.7" },
+    "writing": { "model": "minimax/MiniMax-M2.7" }
   }
 }
 ```
 
-这些是用希腊神话命名的 agent 预设，每个有不同的工作风格。
+**Agent 角色详解：**
+
+| Agent | 角色 | 用途 |
+|-------|------|------|
+| Sisyphus | 主控 | 协调所有 Agent，驱动任务完成 |
+| Hephaestus | 工匠 | 自主深度工作，端到端执行 |
+| Prometheus | 规划者 | 战略规划，面试式需求分析 |
+| Oracle | 架构师 | 架构设计、调试 |
+| Librarian | 图书管理员 | 文档、代码搜索 |
+| Explore | 探索者 | 快速代码库检索 |
+| Metis | 智慧 | 策略分析 |
+| Atlas | 承载者 | 大规模任务 |
+| Momus | 批评者 | 代码审查 |
+| Multimodal Looker | 观察者 | 多模态处理（图像等） |
+
+**Category 系统：**
+
+Agent 不直接选模型，而是选 category，系统自动路由到合适的模型：
+
+| Category | 用途 |
+|----------|------|
+| visual-engineering | 前端、UI/UX、设计 |
+| ultrabrain | 硬逻辑、架构决策 |
+| deep | 自主研究+执行 |
+| artistry | 创意工作 |
+| quick | 单文件修改、小改动 |
+| unspecified-low | 简单任务 |
+| unspecified-high | 复杂任务 |
+| writing | 文档、内容 |
+
+**ultrawork：一键起飞**
+
+```bash
+ultrawork  # 或 ulw
+```
+
+一个命令，所有 Agent 激活：
+- Sisyphus 开始协调
+- Prometheus 开始规划
+- Hephaestus 开始执行
+- 不停直到完成
+
+**Hash-Anchored Edit：解决 Harness Problem**
+
+传统编辑工具有个致命问题：让模型复现行号和内容，容易出错。
+
+oh-my-opencode 的解决方案：
+```
+11#VK| function hello() {
+22#XJ|   return "world";
+33#MB| }
+```
+
+每行带有内容 hash。编辑时引用 hash，系统验证 hash 是否匹配。不匹配就拒绝编辑，避免损坏代码。
+
+**效果：** Grok Code Fast 1 的成功率从 6.7% 提升到 68.3%，仅仅换了编辑工具。
+
+**Ralph Loop：自循环直到完成**
+
+```bash
+/ulw-loop
+```
+
+Agent 不停循环，直到任务 100% 完成。这是"自律 Agent"的实现。
+
+**Todo Enforcer：强制完成**
+
+Agent 闲置时，系统自动拉回来。你的任务必须完成，不能半途而废。
 
 #### 2. opencode-worktree：Git Worktree 管理
 
@@ -599,5 +711,7 @@ Agent 容易"话多"：
 - [OpenCode 官网](https://opencode.ai)
 - [OpenCode GitHub](https://github.com/anomalyco/opencode)
 - [OpenCode 文档](https://opencode.ai/docs)
+- [oh-my-opencode GitHub](https://github.com/code-yeongyu/oh-my-openagent)
 - [Superpowers 插件](https://github.com/anomalyco/opencode/tree/dev/superpowers)
 - [Git Worktree 文档](https://git-scm.com/docs/git-worktree)
+- [The Harness Problem](https://blog.can.ac/2026/02/12/the-harness-problem/)
