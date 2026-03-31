@@ -3,7 +3,7 @@
  */
 
 import { MemoryClient } from './MemoryClient.js';
-import type { MemoryConfig } from './types.js';
+import type { MemoryConfig } from './index.js';
 
 async function main() {
   // 1. Initialize the memory client

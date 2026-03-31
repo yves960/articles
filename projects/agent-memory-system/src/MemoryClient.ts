@@ -18,7 +18,7 @@ import type {
   SearchOptions,
   SearchResult,
   ContextResult,
-} from './types.js';
+} from './index.js';
 import { MemoryStore } from './store/MemoryStore.js';
 import { VectorStore } from './vector/VectorStore.js';
 
@@ -160,7 +160,7 @@ export class MemoryClient {
     const observation = await this.recordObservation({
       sessionId: session.id,
       ...obs,
-    });
+    } as RecordObservationInput);
     
     await this.config.hooks?.onToolUse?.(toolName, input, result, session);
     

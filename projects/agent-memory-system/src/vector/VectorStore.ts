@@ -4,7 +4,7 @@
  * 向量存储抽象，支持语义搜索
  */
 
-import type { VectorConfig, Observation, Memory } from '../types.js';
+import type { VectorConfig, Observation, Memory } from '../index.js';
 
 export interface VectorSearchResult {
   id: string;

@@ -9,13 +9,28 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp/server.d.ts",
+      "import": "./dist/mcp/server.js"
     }
+  },
+  "bin": {
+    "memory-cli": "./dist/cli/index.js"
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "example": "bun run src/example.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "cli": "bun run src/cli/index.ts",
+    "mcp": "bun run src/mcp/server.ts",
+    "lint": "echo 'No linter configured'"
   },
   "keywords": [
     "ai",
@@ -24,7 +39,9 @@
     "claude",
     "claude-code",
     "persistent-memory",
-    "semantic-search"
+    "semantic-search",
+    "mcp",
+    "model-context-protocol"
   ],
   "author": "zoo",
   "license": "MIT",

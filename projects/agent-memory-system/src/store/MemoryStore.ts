@@ -11,7 +11,7 @@ import type {
   Summary,
   Memory,
   SearchOptions,
-} from '../types.js';
+} from '../index.js';
 
 export class MemoryStore {
   private config: StorageConfig;

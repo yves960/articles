@@ -168,7 +168,6 @@ export interface RecordObservationInput {
 }
 
 export interface EndSessionInput {
-  sessionId: string;
   status: 'completed' | 'failed';
   summary?: {
     request?: string;
