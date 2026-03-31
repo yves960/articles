@@ -399,28 +399,48 @@ LSP（Language Server Protocol）让 Agent 获得代码智能：
 
 ---
 
-## Superpowers：技能系统
+## Skills：技能系统
 
-Superpowers 是 OpenCode 的杀手级特性——一套预定义的 Skills，让 Agent 学会"工作方法"。
+Skills 是告诉 AI "这个工具怎么用" 的说明书。一套好的 Skills 能让 Agent 学会"工作方法"。
 
-### Skills 目录结构
+我配置了两类 Skills：
+
+### 1. Superpowers Skills（内置技能）
+
+路径：`~/.config/opencode/superpowers/skills/`
+
+这是 OpenCode 自带的"最佳实践"技能包，14 个技能覆盖完整开发流程：
 
 ```
 superpowers/skills/
-├── brainstorming/           # 头脑风暴
-├── dispatching-parallel-agents/  # 并行分发
-├── executing-plans/         # 执行计划
-├── finishing-a-development-branch/  # 完成分支
-├── receiving-code-review/   # 接收代码审查
-├── requesting-code-review/  # 请求代码审查
-├── subagent-driven-development/  # 子代理驱动开发
-├── systematic-debugging/    # 系统化调试
-├── test-driven-development/  # 测试驱动开发
-├── using-git-worktrees/     # 使用 Git Worktrees
-├── using-superpowers/       # 使用说明
-├── verification-before-completion/  # 完成前验证
-├── writing-plans/           # 编写计划
-└── writing-skills/          # 编写技能
+├── brainstorming/                 # 头脑风暴：任何创造性工作前必须先思考
+├── dispatching-parallel-agents/   # 并行分发：多 Agent 并行处理独立任务
+├── executing-plans/               # 执行计划：加载计划并逐个执行
+├── finishing-a-development-branch/ # 完成分支：merge/PR/cleanup 选择
+├── receiving-code-review/         # 接收审查：技术评估而非情感表演
+├── requesting-code-review/        # 请求审查：完工前强制 review
+├── subagent-driven-development/   # 子代理驱动：每任务派独立 agent
+├── systematic-debugging/          # 系统化调试：随机修复浪费时间
+├── test-driven-development/       # 测试驱动：先写测试再写实现
+├── using-git-worktrees/           # Git Worktrees：隔离工作空间
+├── using-superpowers/             # 使用说明：如何调用其他 skill
+├── verification-before-completion/ # 完成前验证：证据优于断言
+├── writing-plans/                 # 编写计划：为执行者写详细指南
+└── writing-skills/                # 编写技能：TDD 式编写 skill
+```
+
+### 2. OpenSpec Skills（自定义技能）
+
+路径：`~/Projects/self/agent-zoo/.opencode/skills/`
+
+这是我为 OpenSpec 工作流安装的 4 个技能：
+
+```
+.opencode/skills/
+├── openspec-apply-change/   # 实现变更：执行 OpenSpec 任务
+├── openspec-archive-change/ # 归档变更：完成后归档
+├── openspec-explore/        # 探索模式：思考伙伴，澄清需求
+├── openspec-propose/        # 提案变更：一步生成完整提案
 ```
 
 ### 核心 Skills 详解
@@ -547,6 +567,97 @@ design patterns, and best practices.
 5. 问题识别和建议
 
 **关键原则：** 独立审查，不受 Generator 影响。这呼应了 Anthropic 的三 Agent 架构（Planner → Generator → Evaluator）。
+
+### OpenSpec Skills 详解
+
+OpenSpec 是一套变更管理工作流，让 AI Agent 能按规范流程处理需求。
+
+#### openspec-explore：探索模式
+
+```yaml
+---
+name: openspec-explore
+description: Enter explore mode - a thinking partner for exploring ideas, 
+  investigating problems, and clarifying requirements.
+---
+```
+
+**用途：** 在动手之前，先探索想法、调查问题、澄清需求。
+
+**典型场景：**
+- "我想做个新功能，但不确定具体要什么"
+- "这个 bug 可能涉及多个模块，先理清楚"
+
+#### openspec-propose：一键提案
+
+```yaml
+---
+name: openspec-propose
+description: Propose a new change with all artifacts generated in one step.
+---
+```
+
+**用途：** 描述你要做什么，自动生成完整提案：
+- 设计文档
+- 技术规格
+- 任务列表
+
+**效果：** 一个命令，从想法到可执行计划。
+
+#### openspec-apply-change：实现变更
+
+```yaml
+---
+name: openspec-apply-change
+description: Implement tasks from an OpenSpec change.
+---
+```
+
+**用途：** 执行 OpenSpec 提案中的任务。
+
+**流程：**
+1. 加载提案
+2. 按任务顺序执行
+3. 每个任务完成后标记
+4. 全部完成后归档
+
+#### openspec-archive-change：归档变更
+
+```yaml
+---
+name: openspec-archive-change
+description: Archive a completed change in the experimental workflow.
+---
+```
+
+**用途：** 完成后归档，保留完整变更记录。
+
+---
+
+### Skills 完整清单
+
+| Skill | 类型 | 用途 | 何时使用 |
+|-------|------|------|----------|
+| brainstorming | 内置 | 头脑风暴 | 任何创造性工作之前 |
+| dispatching-parallel-agents | 内置 | 并行分发 | 2+ 独立任务 |
+| executing-plans | 内置 | 执行计划 | 有现成计划要执行 |
+| finishing-a-development-branch | 内置 | 完成分支 | 实现完成，准备集成 |
+| receiving-code-review | 内置 | 接收审查 | 收到 review feedback |
+| requesting-code-review | 内置 | 请求审查 | 完工前验证 |
+| subagent-driven-development | 内置 | 子代理驱动 | 当前 session 内多任务 |
+| systematic-debugging | 内置 | 系统调试 | 遇到 bug/test failure |
+| test-driven-development | 内置 | 测试驱动 | 实现任何功能前 |
+| using-git-worktrees | 内置 | Git Worktrees | 需要隔离工作空间 |
+| using-superpowers | 内置 | 使用说明 | 开始任何对话 |
+| verification-before-completion | 内置 | 完成验证 | 声称完成之前 |
+| writing-plans | 内置 | 编写计划 | 多步任务，先写计划 |
+| writing-skills | 内置 | 编写技能 | 创建新 skill |
+| openspec-explore | 自定义 | 探索模式 | 澄清需求 |
+| openspec-propose | 自定义 | 一键提案 | 从想法到计划 |
+| openspec-apply-change | 自定义 | 实现变更 | 执行 OpenSpec 任务 |
+| openspec-archive-change | 自定义 | 归档变更 | 完成后归档 |
+
+**总计：14 个内置 + 4 个自定义 = 18 个 Skills**
 
 ---
 
