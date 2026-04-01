@@ -1,9 +1,0 @@
-{
-  "name": "integration-tests",
-  "version": "0.1.0",
-  "description": "Integration tests for agent systems",
-  "type": "module",
-  "scripts": {
-    "test": "bun run src/test.ts"
-  }
-}
