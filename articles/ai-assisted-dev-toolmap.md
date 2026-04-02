@@ -1,6 +1,6 @@
 # AI辅助研发工具地图
 
-> Harness三层架构 × DevOps流程矩阵，每层分类框内放置具体工具
+> Harness三层包围Agent，DevOps流程独立在外
 
 ---
 
@@ -19,98 +19,89 @@ graph TB
     end
 
     subgraph Harness["AI Harness"]
-        direction TB
-        
         subgraph Feedback["反馈层 Feedback"]
             direction LR
-            F1[静态检查]
-            F2[动态验证]
-            F3[代码审查]
-            F4[运行验证]
+            F1[静态检查] --> F2[动态验证] --> F3[代码审查] --> F4[运行验证]
         end
         
         subgraph Execution["执行层 Execution"]
             direction LR
-            E1[代码操作]
-            E2[开发工具]
-            E3[测试工具]
-            E4[部署运维]
+            E1[代码操作] --> E2[开发工具] --> E3[测试工具] --> E4[部署运维]
         end
         
         subgraph Information["信息层 Information"]
             direction LR
-            I1[Memory<br/>记忆]
-            I2[Context<br/>上下文]
-            I3[Spec<br/>规范]
-            I4[History<br/>历史]
+            I1[Memory<br/>记忆] --> I2[Context<br/>上下文] --> I3[Spec<br/>规范] --> I4[History<br/>历史]
         end
+        
+        Agent((Agent<br/>Core))
     end
     
-    Agent((Agent<br/>Core))
+    Plan -.-> Agent
+    Code -.-> Agent
+    Build -.-> Agent
+    Test -.-> Agent
+    Release -.-> Agent
+    Deploy -.-> Agent
+    Operate -.-> Agent
     
-    Agent --> Information
-    Agent --> Execution
-    Agent --> Feedback
-    
-    Plan --> Agent
-    Code --> Agent
-    Build --> Agent
-    Test --> Agent
-    Release --> Agent
-    Deploy --> Agent
-    Operate --> Agent
-    
-    style Agent fill:#f9f,stroke:#333,stroke-width:3px
-    style Information fill:#e3f2fd,stroke:#1976d2
-    style Execution fill:#e8f5e9,stroke:#388e3c
-    style Feedback fill:#fff3e0,stroke:#f57c00
+    style Agent fill:#f9f,stroke:#333,stroke-width:4px
+    style Information fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style Execution fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Feedback fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style Harness fill:#fafafa,stroke:#424242,stroke-width:3px
 ```
 
 ---
 
 ## 一、信息层 (Information Layer)
 
+> 为Agent提供知识、上下文、规范和历史信息
+
 ```mermaid
 graph TB
     subgraph Information["信息层 Information Layer"]
-        direction TB
-        
         subgraph Memory["Memory 记忆系统"]
-            M1[长期记忆<br/>项目知识/决策/经验]
-            M2[会话记忆<br/>当前对话/工作状态]
-            M3[工作记忆<br/>任务上下文/缓存]
+            M1[长期记忆]
+            M2[会话记忆]
+            M3[工作记忆]
+            M1 --> M2 --> M3
         end
         
         subgraph Context["Context 上下文"]
-            C1[RAG索引<br/>Chroma/Pinecone/Weaviate]
-            C2[知识库<br/>技术文档/最佳实践]
-            C3[文档库<br/>API文档/架构文档]
+            C1[RAG索引]
+            C2[知识库]
+            C3[文档库]
+            C1 --> C2 --> C3
         end
         
         subgraph Spec["Spec 规范"]
-            S1[代码规范<br/>ESLint/Prettier]
-            S2[架构规范<br/>ArchUnit/分层规则]
-            S3[安全规范<br/>OWASP/密钥管理]
+            S1[代码规范]
+            S2[架构规范]
+            S3[安全规范]
+            S1 --> S2 --> S3
         end
         
         subgraph History["History 历史"]
-            H1[Git历史<br/>提交记录/变更]
-            H2[Issue/PR<br/>讨论/审查]
-            H3[运维记录<br/>事件/告警]
+            H1[Git历史]
+            H2[Issue/PR]
+            H3[运维记录]
+            H1 --> H2 --> H3
         end
         
         subgraph External["External 外部知识"]
-            X1[技术问答<br/>Stack Overflow]
-            X2[官方文档<br/>MDN/DevDocs]
-            X3[技术博客<br/>最佳实践]
+            X1[技术问答]
+            X2[官方文档]
+            X3[技术博客]
+            X1 --> X2 --> X3
         end
     end
     
-    style Memory fill:#e3f2fd
-    style Context fill:#bbdefb
-    style Spec fill:#90caf9
-    style History fill:#64b5f6
-    style External fill:#42a5f5
+    style Memory fill:#bbdefb
+    style Context fill:#90caf9
+    style Spec fill:#64b5f6
+    style History fill:#42a5f5
+    style External fill:#2196f3
 ```
 
 ### 信息层工具表
@@ -183,54 +174,60 @@ graph TB
 
 ## 二、执行层 (Execution Layer)
 
+> 为Agent提供工具、命令、操作和集成能力
+
 ```mermaid
 graph TB
     subgraph Execution["执行层 Execution Layer"]
-        direction TB
-        
-        subgraph CodeOps["Code Operations 代码操作"]
-            CO1[文件读写<br/>read/write/edit]
-            CO2[代码生成<br/>Cursor/Copilot]
-            CO3[代码重构<br/>重命名/提取方法]
+        subgraph CodeOps["Code Operations<br/>代码操作"]
+            CO1[文件读写]
+            CO2[代码生成]
+            CO3[代码重构]
+            CO1 --> CO2 --> CO3
         end
         
-        subgraph DevTools["Development Tools 开发工具"]
-            DT1[Shell命令<br/>bash/exec]
-            DT2[Git操作<br/>commit/push/merge]
-            DT3[包管理<br/>npm/pip/maven]
+        subgraph DevTools["Development Tools<br/>开发工具"]
+            DT1[Shell命令]
+            DT2[Git操作]
+            DT3[包管理]
+            DT1 --> DT2 --> DT3
         end
         
-        subgraph TestTools["Testing Tools 测试工具"]
-            TT1[测试执行<br/>Jest/Pytest/JUnit]
-            TT2[测试生成<br/>TestGPT/CodiumAI]
-            TT3[覆盖率<br/>Istanbul/JaCoCo]
+        subgraph TestTools["Testing Tools<br/>测试工具"]
+            TT1[测试执行]
+            TT2[测试生成]
+            TT3[覆盖率]
+            TT1 --> TT2 --> TT3
         end
         
-        subgraph DeployTools["Deployment Tools 部署工具"]
-            DP1[容器化<br/>Docker/Podman]
-            DP2[K8s部署<br/>kubectl/Helm/ArgoCD]
-            DP3[CI/CD<br/>GitHub Actions/Jenkins]
+        subgraph DeployTools["Deployment Tools<br/>部署工具"]
+            DP1[容器化]
+            DP2[K8s部署]
+            DP3[CI/CD]
+            DP1 --> DP2 --> DP3
         end
         
-        subgraph OpsTools["Operations Tools 运维工具"]
-            OT1[监控查询<br/>Prometheus/Grafana]
-            OT2[日志检索<br/>ELK/Loki]
-            OT3[故障处理<br/>扩缩容/回滚]
+        subgraph OpsTools["Operations Tools<br/>运维工具"]
+            OT1[监控查询]
+            OT2[日志检索]
+            OT3[故障处理]
+            OT1 --> OT2 --> OT3
         end
         
-        subgraph ExtTools["External Tools 外部集成"]
-            ET1[数据库<br/>PostgreSQL/MySQL/MongoDB]
-            ET2[消息队列<br/>Kafka/RabbitMQ]
-            ET3[API调用<br/>HTTP/MCP Tools]
+        subgraph ExtTools["External Tools<br/>外部集成"]
+            ET1[数据库]
+            ET2[消息队列]
+            ET3[API调用]
+            ET1 --> ET2 --> ET3
         end
     end
     
-    style CodeOps fill:#e8f5e9
-    style DevTools fill:#c8e6c9
-    style TestTools fill:#a5d6a7
-    style DeployTools fill:#81c784
-    style OpsTools fill:#66bb6a
-    style ExtTools fill:#4caf50
+    style CodeOps fill:#c8e6c9
+    style DevTools fill:#a5d6a7
+    style TestTools fill:#81c784
+    style DeployTools fill:#66bb6a
+    style OpsTools fill:#4caf50
+    style ExtTools fill:#43a047
 ```
 
 ### 执行层工具表
@@ -245,8 +242,6 @@ graph TB
 | | **GitHub Copilot** | AI代码助手 | [github.com/features/copilot](https://github.com/features/copilot) |
 | | **Claude Code** | AI编程助手 | [anthropic.com](https://www.anthropic.com/) |
 | | **Codeium** | 免费代码助手 | [codeium.com](https://codeium.com/) |
-| 代码重构 | **IntelliJ IDEA** | 重构工具 | [jetbrains.com/idea](https://www.jetbrains.com/idea/) |
-| | **VS Code** | 编辑器 | [code.visualstudio.com](https://code.visualstudio.com/) |
 
 #### Development Tools (开发工具)
 
@@ -268,18 +263,14 @@ graph TB
 | | **Pytest** | Python测试 | [docs.pytest.org](https://docs.pytest.org/) |
 | | **JUnit** | Java测试 | [junit.org](https://junit.org/) |
 | 测试生成 | **TestGPT/CodiumAI** | AI测试生成 | [codium.ai](https://www.codium.ai/) |
-| | **Diffblue Cover** | Java单元测试 | [diffblue.com](https://www.diffblue.com/) |
 | E2E测试 | **Playwright** | 跨浏览器测试 | [playwright.dev](https://playwright.dev/) |
 | | **Cypress** | Web测试 | [cypress.io](https://www.cypress.io/) |
-| 覆盖率 | **Istanbul/nyc** | JS覆盖率 | [istanbul.js.org](https://istanbul.js.org/) |
-| | **JaCoCo** | Java覆盖率 | [jacoco.org](https://www.jacoco.org/) |
 
 #### Deployment Tools (部署工具)
 
 | 子类 | 工具 | 说明 | 链接 |
 |------|------|------|------|
 | 容器化 | **Docker** | 容器平台 | [docker.com](https://www.docker.com/) |
-| | **Podman** | 无守护进程容器 | [podman.io](https://podman.io/) |
 | K8s部署 | **kubectl** | K8s命令行 | [kubernetes.io](https://kubernetes.io/) |
 | | **Helm** | K8s包管理 | [helm.sh](https://helm.sh/) |
 | | **ArgoCD** | GitOps部署 | [argo-cd.readthedocs.io](https://argo-cd.readthedocs.io/) |
@@ -296,7 +287,6 @@ graph TB
 | | **Datadog** | 全栈监控 | [datadoghq.com](https://www.datadoghq.com/) |
 | 日志 | **ELK Stack** | 日志平台 | [elastic.co](https://www.elastic.co/) |
 | | **Loki** | 日志聚合 | [grafana.com/oss/loki](https://grafana.com/oss/loki/) |
-| 追踪 | **Jaeger** | 分布式追踪 | [jaegertracing.io](https://www.jaegertracing.io/) |
 
 #### External Tools (外部集成)
 
@@ -315,46 +305,51 @@ graph TB
 
 ## 三、反馈层 (Feedback Layer)
 
+> 验证、检查、纠正和评估Agent的行为
+
 ```mermaid
 graph TB
     subgraph Feedback["反馈层 Feedback Layer"]
-        direction TB
-        
-        subgraph Static["Static Analysis 静态检查"]
-            SA1[代码风格<br/>ESLint/Prettier]
-            SA2[类型检查<br/>TypeScript/mypy]
-            SA3[安全扫描<br/>Snyk/Semgrep]
+        subgraph Static["Static Analysis<br/>静态检查"]
+            SA1[代码风格]
+            SA2[类型检查]
+            SA3[安全扫描]
+            SA1 --> SA2 --> SA3
         end
         
-        subgraph Dynamic["Dynamic Verification 动态验证"]
-            DV1[单元测试<br/>Jest/Pytest/JUnit]
-            DV2[集成测试<br/>Playwright/Cypress]
-            DV3[覆盖率<br/>Istanbul/JaCoCo]
+        subgraph Dynamic["Dynamic Verification<br/>动态验证"]
+            DV1[单元测试]
+            DV2[集成测试]
+            DV3[覆盖率]
+            DV1 --> DV2 --> DV3
         end
         
-        subgraph Review["Code Review 代码审查"]
-            CR1[质量审查<br/>CodeRabbit/SonarQube]
-            CR2[安全审查<br/>Snyk/Checkmarx]
-            CR3[性能审查<br/>Lighthouse/k6]
+        subgraph Review["Code Review<br/>代码审查"]
+            CR1[质量审查]
+            CR2[安全审查]
+            CR3[性能审查]
+            CR1 --> CR2 --> CR3
         end
         
-        subgraph Runtime["Runtime Validation 运行验证"]
-            RV1[健康检查<br/>Healthchecks/kube-probe]
-            RV2[冒烟测试<br/>Postman/脚本]
-            RV3[灰度验证<br/>Flagger/Istio]
+        subgraph Runtime["Runtime Validation<br/>运行验证"]
+            RV1[健康检查]
+            RV2[冒烟测试]
+            RV3[灰度验证]
+            RV1 --> RV2 --> RV3
         end
         
-        subgraph Loop["Feedback Loop 反馈闭环"]
-            FL1[错误学习<br/>错误模式记录]
-            FL2[规范更新<br/>Lint规则更新]
-            FL3[能力进化<br/>技能优化]
+        subgraph Loop["Feedback Loop<br/>反馈闭环"]
+            FL1[错误学习]
+            FL2[规范更新]
+            FL3[能力进化]
+            FL1 --> FL2 --> FL3
         end
     end
     
-    style Static fill:#fff3e0
-    style Dynamic fill:#ffe0b2
-    style Review fill:#ffcc80
-    style Runtime fill:#ffb74d
+    style Static fill:#ffe0b2
+    style Dynamic fill:#ffcc80
+    style Review fill:#ffb74d
+    style Runtime fill:#ffa726
     style Loop fill:#ff9800
 ```
 
@@ -410,64 +405,43 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Plan["Plan 规划"]
-        direction TB
-        P_I[信息: 需求文档/Jira]
-        P_E[执行: 任务分解]
-        P_F[反馈: 需求评审]
+    subgraph DevOps["DevOps 流程"]
+        direction LR
+        P[Plan] --> C[Code] --> B[Build] --> T[Test] --> R[Release] --> D[Deploy] --> O[Operate]
     end
     
-    subgraph Code["Code 编码"]
-        direction TB
-        C_I[信息: RAG索引/代码规范]
-        C_E[执行: 代码生成/Git操作]
-        C_F[反馈: Lint/测试/审查]
+    subgraph Harness["AI Harness"]
+        I[信息层] --> E[执行层] --> F[反馈层]
+        Agent((Agent))
     end
     
-    subgraph Build["Build 构建"]
-        direction TB
-        B_I[信息: 构建配置/Dockerfile]
-        B_E[执行: npm build/docker build]
-        B_F[反馈: 构建验证/安全扫描]
-    end
+    P -.->|需求/规范| I
+    C -.->|代码/RAG| I
+    B -.->|配置| I
+    T -.->|用例| I
+    R -.->|清单| I
+    D -.->|部署配置| I
+    O -.->|运维手册| I
     
-    subgraph Test["Test 测试"]
-        direction TB
-        T_I[信息: 测试用例/覆盖率要求]
-        T_E[执行: Jest/Playwright]
-        T_F[反馈: 测试报告/覆盖率]
-    end
+    P -.->|任务分解| E
+    C -.->|代码生成| E
+    B -.->|构建| E
+    T -.->|测试执行| E
+    R -.->|发布| E
+    D -.->|部署| E
+    O -.->|监控| E
     
-    subgraph Release["Release 发布"]
-        direction TB
-        R_I[信息: 发布清单/变更日志]
-        R_E[执行: Git tag/版本打标]
-        R_F[反馈: 发布验证/灰度验证]
-    end
+    C -.->|Lint| F
+    B -.->|扫描| F
+    T -.->|报告| F
+    R -.->|验证| F
+    D -.->|健康检查| F
+    O -.->|告警| F
     
-    subgraph Deploy["Deploy 部署"]
-        direction TB
-        D_I[信息: 部署配置/K8s YAML]
-        D_E[执行: kubectl/Helm/ArgoCD]
-        D_F[反馈: 健康检查/冒烟测试]
-    end
-    
-    subgraph Operate["Operate 运维"]
-        direction TB
-        O_I[信息: 运维手册/监控配置]
-        O_E[执行: 监控查询/故障处理]
-        O_F[反馈: 告警分析/故障复盘]
-    end
-    
-    Plan --> Code --> Build --> Test --> Release --> Deploy --> Operate
-    
-    style Plan fill:#e3f2fd
-    style Code fill:#e8f5e9
-    style Build fill:#fff3e0
-    style Test fill:#fce4ec
-    style Release fill:#f3e5f5
-    style Deploy fill:#e0f2f1
-    style Operate fill:#fff8e1
+    style Agent fill:#f9f,stroke:#333,stroke-width:3px
+    style I fill:#e3f2fd
+    style E fill:#e8f5e9
+    style F fill:#fff3e0
 ```
 
 ### 各阶段工具矩阵
@@ -489,8 +463,6 @@ graph LR
 ```mermaid
 graph TB
     subgraph hagent["h-agent"]
-        direction TB
-        
         subgraph hFeedback["反馈层"]
             hF1[Lint检查]
             hF2[测试运行]
@@ -499,26 +471,22 @@ graph TB
         end
         
         subgraph hExecution["执行层"]
-            hE1[文件操作<br/>read/write/edit]
-            hE2[Shell命令<br/>bash/exec]
-            hE3[Git操作<br/>commit/push/merge]
-            hE4[Docker/K8s<br/>kubectl/helm]
-            hE5[MCP工具<br/>Playwright等]
-            hE6[任务调度<br/>Cron/Heartbeat]
+            hE1[文件操作]
+            hE2[Shell命令]
+            hE3[Git操作]
+            hE4[Docker/K8s]
+            hE5[MCP工具]
+            hE6[任务调度]
         end
         
         subgraph hInformation["信息层"]
-            hI1[Memory<br/>长期/会话记忆]
-            hI2[Context<br/>RAG索引]
-            hI3[Spec<br/>规范管理]
-            hI4[History<br/>Git历史]
+            hI1[Memory]
+            hI2[RAG索引]
+            hI3[规范管理]
+            hI4[Git历史]
         end
         
         hCore((Agent<br/>Core))
-        
-        hCore --> hInformation
-        hCore --> hExecution
-        hCore --> hFeedback
     end
     
     style hCore fill:#f9f,stroke:#333,stroke-width:3px
@@ -600,4 +568,4 @@ timeline
 
 ---
 
-*本文档使用Mermaid图表展示清晰的分层分类结构，所有工具链接均可点击访问。*
+*本文档使用Mermaid图表展示Harness三层包围Agent的结构，DevOps流程独立在外通过虚线连接。*
