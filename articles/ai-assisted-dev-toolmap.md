@@ -2,223 +2,396 @@
 
 <div align="center">
 
-<table style="border: 2px solid #424242; border-collapse: collapse; background: #fafafa; width: 100%; max-width: 1200px;">
-<tr>
-<td style="padding: 20px;">
-
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- DevOps 流程 -->
-<table style="width: 100%; margin-bottom: 30px; border: 2px solid #1976d2; background: #e3f2fd;">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<table style="width: 100%; max-width: 1100px; margin: 0 auto 30px; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
 <tr>
-<th colspan="7" style="padding: 10px; background: #1976d2; color: white; font-size: 16px;">DevOps 流程</th>
-</tr>
-<tr style="text-align: center;">
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Plan</b><br><span style="font-size: 12px; color: #666;">规划</span></td>
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Code</b><br><span style="font-size: 12px; color: #666;">编码</span></td>
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Build</b><br><span style="font-size: 12px; color: #666;">构建</span></td>
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Test</b><br><span style="font-size: 12px; color: #666;">测试</span></td>
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Release</b><br><span style="font-size: 12px; color: #666;">发布</span></td>
-<td style="padding: 12px; border-right: 1px solid #90caf9;"><b>Deploy</b><br><span style="font-size: 12px; color: #666;">部署</span></td>
-<td style="padding: 12px;"><b>Operate</b><br><span style="font-size: 12px; color: #666;">运维</span></td>
-</tr>
-<tr style="text-align: center; font-size: 11px; color: #1565c0;">
-<td style="padding: 8px; border-top: 1px solid #90caf9;">Linear<br>Jira</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">Cursor<br>Copilot</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">Docker<br>Webpack</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">Jest<br>Playwright</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">GitHub Actions</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">K8s<br>ArgoCD</td>
-<td style="padding: 8px; border-top: 1px solid #90caf9;">Prometheus<br>Grafana</td>
+<td style="padding: 0;">
+
+<!-- 标题 -->
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 20px; border-radius: 12px 12px 0 0;">
+<span style="font-size: 18px; font-weight: 600; color: white;">🔄 DevOps 流程</span>
+</div>
+
+<!-- 流程节点 -->
+<table style="width: 100%; background: #fafbfc; border: 1px solid #e1e4e8; border-top: none;">
+<tr>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">📋</span>
+</div>
+<b style="color: #24292e;">Plan</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">Linear • Jira<br>Notion</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">💻</span>
+</div>
+<b style="color: #24292e;">Code</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">Cursor<br>Copilot • Claude</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">🔧</span>
+</div>
+<b style="color: #24292e;">Build</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">Webpack<br>Vite • Docker</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">🧪</span>
+</div>
+<b style="color: #24292e;">Test</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">Jest • Playwright<br>Cypress</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">📦</span>
+</div>
+<b style="color: #24292e;">Release</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">GitHub Actions<br>GitLab CI</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center; border-right: 1px solid #e1e4e8;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">🚀</span>
+</div>
+<b style="color: #24292e;">Deploy</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">K8s • Helm<br>ArgoCD</div>
+</td>
+<td style="width: 14.2%; padding: 20px 10px; text-align: center;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 18px;">⚙️</span>
+</div>
+<b style="color: #24292e;">Operate</b>
+<div style="font-size: 11px; color: #586069; margin-top: 8px;">Prometheus<br>Grafana • Datadog</div>
+</td>
 </tr>
 </table>
 
+</td>
+</tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- AI Harness -->
-<table style="width: 100%; border: 3px solid #424242; background: white;">
-<tr>
-<th colspan="5" style="padding: 12px; background: #424242; color: white; font-size: 16px;">AI Harness</th>
-</tr>
+<!-- ═══════════════════════════════════════════════════════════════ -->
 
+<table style="width: 100%; max-width: 1100px; margin: 0 auto; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; border: 2px solid #d0d7de; border-radius: 12px; background: white;">
+<tr>
+<td style="padding: 0;">
+
+<!-- Harness 标题 -->
+<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 15px 20px; border-radius: 10px 10px 0 0;">
+<span style="font-size: 18px; font-weight: 600; color: white;">🤖 AI Harness</span>
+<span style="font-size: 12px; color: #8b949e; margin-left: 10px;">三层架构包围 Agent Core</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- 反馈层 -->
-<tr>
-<td colspan="5" style="padding: 15px; background: #fff3e0;">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<div style="background: #fff8e1; padding: 15px 20px; border-bottom: 1px solid #e1e4e8;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<span style="background: #ff9800; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">反馈层 Feedback</span>
+<span style="margin-left: 10px; font-size: 12px; color: #666;">验证 • 检查 • 纠正 • 评估</span>
+</div>
+
 <table style="width: 100%; border-collapse: collapse;">
 <tr>
-<td colspan="5" style="padding: 8px; font-weight: bold; color: #e65100; border-bottom: 2px solid #ffb74d;">反馈层 Feedback</td>
-</tr>
-<tr>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #ffcc80; vertical-align: top;">
-<b style="color: #e65100;">静态检查</b><br>
-<span style="font-size: 11px;">代码风格</span><br>
-<span style="font-size: 11px;">类型检查</span><br>
-<span style="font-size: 11px;">安全扫描</span>
-<hr style="border: none; border-top: 1px dashed #ffcc80; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">ESLint • TypeScript<br>Snyk • SonarQube</span>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #ffcc80; border-radius: 8px; vertical-align: top;">
+<b style="color: #e65100; font-size: 14px;">🔍 静态检查</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+ESLint • Prettier<br>
+TypeScript • mypy<br>
+SonarQube • Snyk
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ffcc80; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐配置</b><br>
+• Airbnb Style Guide<br>
+• Google TypeScript<br>
+• OWASP Top 10 规则
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #ffcc80; vertical-align: top;">
-<b style="color: #e65100;">动态验证</b><br>
-<span style="font-size: 11px;">单元测试</span><br>
-<span style="font-size: 11px;">集成测试</span><br>
-<span style="font-size: 11px;">覆盖率</span>
-<hr style="border: none; border-top: 1px dashed #ffcc80; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Jest • Pytest • JUnit<br>Playwright • Cypress</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #ffcc80; border-radius: 8px; vertical-align: top;">
+<b style="color: #e65100; font-size: 14px;">✅ 动态验证</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Jest • Pytest • JUnit<br>
+Playwright • Cypress<br>
+Istanbul • JaCoCo
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ffcc80; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐实践</b><br>
+• 80%+ 覆盖率<br>
+• E2E关键路径<br>
+• 快照测试
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #ffcc80; vertical-align: top;">
-<b style="color: #e65100;">代码审查</b><br>
-<span style="font-size: 11px;">质量审查</span><br>
-<span style="font-size: 11px;">安全审查</span><br>
-<span style="font-size: 11px;">性能审查</span>
-<hr style="border: none; border-top: 1px dashed #ffcc80; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">CodeRabbit • SonarQube<br>Snyk • Lighthouse</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #ffcc80; border-radius: 8px; vertical-align: top;">
+<b style="color: #e65100; font-size: 14px;">👀 代码审查</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+CodeRabbit<br>
+GitHub PR Review<br>
+Gerrit • GitLab MR
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ffcc80; font-size: 11px; color: #666;">
+<b style="color: #333;">AI助手</b><br>
+• CodeRabbit AI<br>
+• Copilot Review<br>
+• Claude Review
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #ffcc80; vertical-align: top;">
-<b style="color: #e65100;">运行验证</b><br>
-<span style="font-size: 11px;">健康检查</span><br>
-<span style="font-size: 11px;">冒烟测试</span><br>
-<span style="font-size: 11px;">灰度验证</span>
-<hr style="border: none; border-top: 1px dashed #ffcc80; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Healthchecks.io<br>Flagger • Argo Rollouts</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #ffcc80; border-radius: 8px; vertical-align: top;">
+<b style="color: #e65100; font-size: 14px;">🏥 运行验证</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Healthchecks.io<br>
+Flagger • Argo Rollouts<br>
+Chaos Monkey
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ffcc80; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐策略</b><br>
+• 金丝雀发布<br>
+• 蓝绿部署<br>
+• 自动回滚
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #ffcc80; vertical-align: top;">
-<b style="color: #e65100;">反馈闭环</b><br>
-<span style="font-size: 11px;">错误学习</span><br>
-<span style="font-size: 11px;">规范更新</span><br>
-<span style="font-size: 11px;">能力进化</span>
-<hr style="border: none; border-top: 1px dashed #ffcc80; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">错误模式记录<br>规范迭代优化</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #ffcc80; border-radius: 8px; vertical-align: top;">
+<b style="color: #e65100; font-size: 14px;">🔄 反馈闭环</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">机制</b><br>
+• 错误模式学习<br>
+• 规范迭代<br>
+• 能力进化
+</div>
 </td>
 </tr>
 </table>
-</td>
-</tr>
+</div>
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- 执行层 -->
-<tr>
-<td colspan="5" style="padding: 15px; background: #e8f5e9;">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<div style="background: #e8f5e9; padding: 15px 20px; border-bottom: 1px solid #e1e4e8;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<span style="background: #4caf50; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">执行层 Execution</span>
+<span style="margin-left: 10px; font-size: 12px; color: #666;">工具 • 命令 • 操作 • 集成</span>
+</div>
+
 <table style="width: 100%; border-collapse: collapse;">
 <tr>
-<td colspan="6" style="padding: 8px; font-weight: bold; color: #2e7d32; border-bottom: 2px solid #81c784;">执行层 Execution</td>
-</tr>
-<tr>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">代码操作</b><br>
-<span style="font-size: 11px;">文件读写</span><br>
-<span style="font-size: 11px;">代码生成</span><br>
-<span style="font-size: 11px;">代码重构</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">read/write/edit<br>Cursor • Copilot<br>Claude Code</span>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">📝 代码操作</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Cursor • Copilot<br>
+Claude Code<br>
+VS Code • JetBrains
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent工具</b><br>
+• read/write/edit<br>
+• glob • 搜索
+</div>
 </td>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">开发工具</b><br>
-<span style="font-size: 11px;">Shell命令</span><br>
-<span style="font-size: 11px;">Git操作</span><br>
-<span style="font-size: 11px;">包管理</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">bash • exec<br>git-commit/push<br>npm • pip • maven</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">🛠 开发工具</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Git • GitHub CLI<br>
+npm • pip • maven<br>
+Docker Desktop
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent工具</b><br>
+• bash/exec<br>
+• git-commit/push<br>
+• 权限控制
+</div>
 </td>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">测试工具</b><br>
-<span style="font-size: 11px;">测试执行</span><br>
-<span style="font-size: 11px;">测试生成</span><br>
-<span style="font-size: 11px;">覆盖率</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Jest • Pytest • JUnit<br>TestGPT • CodiumAI<br>Istanbul • JaCoCo</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">🧪 测试工具</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Jest • Pytest<br>
+Playwright • Cypress<br>
+TestGPT • CodiumAI
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐技能</b><br>
+• test-generator<br>
+• coverage-analyzer
+</div>
 </td>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">部署工具</b><br>
-<span style="font-size: 11px;">容器化</span><br>
-<span style="font-size: 11px;">K8s部署</span><br>
-<span style="font-size: 11px;">CI/CD</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Docker • Podman<br>kubectl • Helm • ArgoCD<br>GitHub Actions • Jenkins</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">🚀 部署工具</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Docker • K8s<br>
+Helm • ArgoCD<br>
+Terraform • Pulumi
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent工具</b><br>
+• docker-ps/build<br>
+• kubectl封装
+</div>
 </td>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">运维工具</b><br>
-<span style="font-size: 11px;">监控查询</span><br>
-<span style="font-size: 11px;">日志检索</span><br>
-<span style="font-size: 11px;">故障处理</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Prometheus • Grafana<br>ELK • Loki<br>扩缩容 • 回滚</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">⚙️ 运维工具</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Prometheus • Grafana<br>
+Datadog • PagerDuty<br>
+ELK • Loki
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent工具</b><br>
+• 监控查询<br>
+• 日志检索
+</div>
 </td>
-<td style="width: 16%; padding: 10px; background: white; border: 1px solid #a5d6a7; vertical-align: top;">
-<b style="color: #2e7d32;">外部集成</b><br>
-<span style="font-size: 11px;">数据库</span><br>
-<span style="font-size: 11px;">消息队列</span><br>
-<span style="font-size: 11px;">API调用</span>
-<hr style="border: none; border-top: 1px dashed #a5d6a7; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">PostgreSQL • MySQL<br>Kafka • RabbitMQ<br>HTTP • MCP Tools</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #81c784; border-radius: 8px; vertical-align: top;">
+<b style="color: #2e7d32; font-size: 14px;">🔌 外部集成</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">数据库</b><br>
+PostgreSQL • MySQL<br>
+MongoDB • Redis<br><br>
+<b style="color: #333;">消息队列</b><br>
+Kafka • RabbitMQ
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #81c784; font-size: 11px; color: #666;">
+<b style="color: #333;">MCP工具</b><br>
+• Playwright MCP<br>
+• 自定义MCP
+</div>
 </td>
 </tr>
 </table>
-</td>
-</tr>
+</div>
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- 信息层 -->
-<tr>
-<td colspan="5" style="padding: 15px; background: #e3f2fd;">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<div style="background: #e3f2fd; padding: 15px 20px; border-bottom: 1px solid #e1e4e8;">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<span style="background: #2196f3; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">信息层 Information</span>
+<span style="margin-left: 10px; font-size: 12px; color: #666;">知识 • 上下文 • 规范 • 历史</span>
+</div>
+
 <table style="width: 100%; border-collapse: collapse;">
 <tr>
-<td colspan="5" style="padding: 8px; font-weight: bold; color: #1565c0; border-bottom: 2px solid #64b5f6;">信息层 Information</td>
-</tr>
-<tr>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #90caf9; vertical-align: top;">
-<b style="color: #1565c0;">Memory 记忆</b><br>
-<span style="font-size: 11px;">长期记忆</span><br>
-<span style="font-size: 11px;">会话记忆</span><br>
-<span style="font-size: 11px;">工作记忆</span>
-<hr style="border: none; border-top: 1px dashed #90caf9; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">h-agent Memory<br>LangChain Memory<br>Mem0 • Redis</span>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #64b5f6; border-radius: 8px; vertical-align: top;">
+<b style="color: #1565c0; font-size: 14px;">🧠 Memory 记忆</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+LangChain Memory<br>
+Mem0 • Letta<br>
+Redis • PostgreSQL
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #64b5f6; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent</b><br>
+• 长期记忆<br>
+• 会话记忆<br>
+• 工作记忆
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #90caf9; vertical-align: top;">
-<b style="color: #1565c0;">Context 上下文</b><br>
-<span style="font-size: 11px;">RAG索引</span><br>
-<span style="font-size: 11px;">知识库</span><br>
-<span style="font-size: 11px;">文档库</span>
-<hr style="border: none; border-top: 1px dashed #90caf9; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Chroma • Pinecone<br>Weaviate • Milvus<br>LlamaIndex • Sourcegraph</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #64b5f6; border-radius: 8px; vertical-align: top;">
+<b style="color: #1565c0; font-size: 14px;">📚 Context 上下文</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">RAG平台</b><br>
+Chroma • Pinecone<br>
+Weaviate • Milvus<br>
+LlamaIndex
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #64b5f6; font-size: 11px; color: #666;">
+<b style="color: #333;">h-agent</b><br>
+• 代码库RAG<br>
+• 文档索引<br>
+• 语义搜索
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #90caf9; vertical-align: top;">
-<b style="color: #1565c0;">Spec 规范</b><br>
-<span style="font-size: 11px;">代码规范</span><br>
-<span style="font-size: 11px;">架构规范</span><br>
-<span style="font-size: 11px;">安全规范</span>
-<hr style="border: none; border-top: 1px dashed #90caf9; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">ESLint • Prettier<br>ArchUnit • 分层规则<br>OWASP • Snyk</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #64b5f6; border-radius: 8px; vertical-align: top;">
+<b style="color: #1565c0; font-size: 14px;">📐 Spec 规范</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">规范平台</b><br>
+ESLint • Prettier<br>
+ArchUnit • Checkstyle<br>
+OWASP • Snyk
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #64b5f6; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐规范</b><br>
+• 代码风格规范<br>
+• 架构分层规范<br>
+• 安全编码规范
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #90caf9; vertical-align: top;">
-<b style="color: #1565c0;">History 历史</b><br>
-<span style="font-size: 11px;">Git历史</span><br>
-<span style="font-size: 11px;">Issue/PR</span><br>
-<span style="font-size: 11px;">运维记录</span>
-<hr style="border: none; border-top: 1px dashed #90caf9; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">Git • GitHub • GitLab<br>Jira • Linear<br>PagerDuty • Opsgenie</span>
+<td style="width: 1%;"></td>
+<td style="width: 20%; padding: 12px; background: white; border: 1px solid #64b5f6; border-radius: 8px; vertical-align: top;">
+<b style="color: #1565c0; font-size: 14px;">📜 History 历史</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">平台工具</b><br>
+Git • GitHub • GitLab<br>
+Jira • Linear<br>
+PagerDuty
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #64b5f6; font-size: 11px; color: #666;">
+<b style="color: #333;">追溯内容</b><br>
+• 提交历史<br>
+• Issue/PR讨论<br>
+• 运维事件
+</div>
 </td>
-<td style="width: 20%; padding: 10px; background: white; border: 1px solid #90caf9; vertical-align: top;">
-<b style="color: #1565c0;">Skill 技能</b><br>
-<span style="font-size: 11px;">技能平台</span><br>
-<span style="font-size: 11px;">推荐技能</span><br>
-<span style="font-size: 11px;">自定义技能</span>
-<hr style="border: none; border-top: 1px dashed #90caf9; margin: 8px 0;">
-<span style="font-size: 10px; color: #666;">ClawHub • MCP Registry<br>Playwright • Draw.io<br>flow-trace • web-search</span>
+<td style="width: 1%;"></td>
+<td style="width: 16%; padding: 12px; background: white; border: 1px solid #64b5f6; border-radius: 8px; vertical-align: top;">
+<b style="color: #1565c0; font-size: 14px;">🎯 Skill 技能</b>
+<div style="margin-top: 8px; font-size: 11px; color: #666;">
+<b style="color: #333;">技能平台</b><br>
+ClawHub.ai<br>
+MCP Registry<br>
+Smithery
+</div>
+<div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #64b5f6; font-size: 11px; color: #666;">
+<b style="color: #333;">推荐技能</b><br>
+• Playwright<br>
+• Draw.io<br>
+• flow-trace<br>
+• web-search
+</div>
 </td>
 </tr>
 </table>
-</td>
-</tr>
+</div>
 
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- Agent Core -->
-<tr>
-<td colspan="5" style="padding: 20px; text-align: center; background: #fce4ec;">
-<table style="margin: 0 auto; border: 3px solid #e91e63; background: white; border-radius: 50px;">
-<tr>
-<td style="padding: 15px 40px; text-align: center;">
-<b style="font-size: 18px; color: #c2185b;">Agent Core</b><br>
-<span style="font-size: 12px; color: #666;">AI推理引擎</span><br>
-<span style="font-size: 11px; color: #999;">多Agent协作 • 任务编排 • 权限控制 • 会话管理</span>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<div style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); padding: 30px; text-align: center;">
+<div style="display: inline-block; background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%); padding: 20px 50px; border-radius: 50px; box-shadow: 0 4px 20px rgba(233, 30, 99, 0.3);">
+<span style="font-size: 20px; font-weight: 600; color: white;">🤖 Agent Core</span>
+<div style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 8px;">
+多Agent协作 • 任务编排 • 权限控制 • 会话管理 • 能力调度
+</div>
+</div>
+</div>
 
 </td>
 </tr>
@@ -228,51 +401,43 @@
 
 ---
 
-## 工具链接速查
+## 工具链接
 
 ### 信息层
 
-| 分类 | 工具 | 链接 |
+| 分类 | 平台 | 链接 |
 |------|------|------|
-| RAG索引 | Chroma | [trychroma.com](https://www.trychroma.com/) |
+| RAG | Chroma | [trychroma.com](https://www.trychroma.com/) |
 | | Pinecone | [pinecone.io](https://www.pinecone.io/) |
 | | Weaviate | [weaviate.io](https://weaviate.io/) |
-| 知识库 | Notion | [notion.so](https://www.notion.so/) |
-| | LlamaIndex | [llamaindex.ai](https://www.llamaindex.ai/) |
-| 代码搜索 | Sourcegraph | [sourcegraph.com](https://sourcegraph.com/) |
-| 规范 | ESLint | [eslint.org](https://eslint.org/) |
-| | ArchUnit | [archunit.org](https://www.archunit.org/) |
-| 技能平台 | ClawHub | [clawhub.ai](https://clawhub.ai/) |
+| 记忆 | Mem0 | [mem0.ai](https://mem0.ai/) |
+| | LangChain | [langchain.com](https://www.langchain.com/) |
+| 技能 | ClawHub | [clawhub.ai](https://clawhub.ai/) |
+| | Smithery | [smithery.ai](https://smithery.ai/) |
 
 ### 执行层
 
-| 分类 | 工具 | 链接 |
+| 分类 | 平台 | 链接 |
 |------|------|------|
 | 代码生成 | Cursor | [cursor.sh](https://cursor.sh/) |
 | | GitHub Copilot | [github.com/features/copilot](https://github.com/features/copilot) |
 | | Claude Code | [anthropic.com](https://www.anthropic.com/) |
 | 测试 | Jest | [jestjs.io](https://jestjs.io/) |
 | | Playwright | [playwright.dev](https://playwright.dev/) |
-| | TestGPT | [codium.ai](https://www.codium.ai/) |
+| | CodiumAI | [codium.ai](https://www.codium.ai/) |
 | 部署 | Docker | [docker.com](https://www.docker.com/) |
 | | Kubernetes | [kubernetes.io](https://kubernetes.io/) |
 | | ArgoCD | [argo-cd.readthedocs.io](https://argo-cd.readthedocs.io/) |
-| CI/CD | GitHub Actions | [github.com/features/actions](https://github.com/features/actions) |
-| | Jenkins | [jenkins.io](https://www.jenkins.io/) |
-| 监控 | Prometheus | [prometheus.io](https://prometheus.io/) |
-| | Grafana | [grafana.com](https://grafana.com/) |
-| | Datadog | [datadoghq.com](https://www.datadoghq.com/) |
 
 ### 反馈层
 
-| 分类 | 工具 | 链接 |
+| 分类 | 平台 | 链接 |
 |------|------|------|
 | 代码质量 | SonarQube | [sonarqube.org](https://www.sonarqube.org/) |
 | | CodeRabbit | [coderabbit.ai](https://coderabbit.ai/) |
-| 安全扫描 | Snyk | [snyk.io](https://snyk.io/) |
+| 安全 | Snyk | [snyk.io](https://snyk.io/) |
 | | Trivy | [aquasec.github.io/trivy](https://aquasec.github.io/trivy/) |
-| 性能 | Lighthouse | [developer.chrome.com/docs/lighthouse](https://developer.chrome.com/docs/lighthouse/) |
 
 ---
 
-*此地图展示AI辅助研发的完整工具生态，Harness三层包围Agent，DevOps流程独立在外*
+*AI辅助研发工具地图 v3 • Harness包围Agent • DevOps独立流程 • 平台+内容双栏*
