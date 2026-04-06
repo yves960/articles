@@ -60,10 +60,13 @@ ai-assisted-dev-specs/
 │   ├── rag-chunking.md           # 分块策略
 │   └── rag-indexing.md           # 索引与更新策略
 │
-└── 4-INTEGRATION/                # 整合方案
-    ├── openspec-integration.md   # 与OpenSpec设计层整合
-    ├── beads-integration.md      # 与Beads执行层整合
-    └── workflow-example.md       # 完整工作流示例
+├── 4-INTEGRATION/                # 整合方案
+│   ├── openspec-integration.md   # 与OpenSpec设计层整合
+│   ├── beads-integration.md      # 与Beads执行层整合
+│   └── workflow-example.md       # 完整工作流示例
+│
+└── 5-WORKFLOW/                  # 团队协作规范
+    └── README.md                 # 角色定义·协作流程·检查清单
 ```
 
 ## 与现有体系整合
@@ -85,6 +88,16 @@ OpenSpec (设计文档链)
 1. **SPEC继承OpenSpec**：OpenSpec的`specs/*.md`是功能规格，`PROJECT.spec.md`是项目级约束
 2. **SKILL映射到Beads**：SKILL定义"做什么"，Beads追踪"做得怎样"
 3. **RAG为两者提供上下文**：设计时需要历史知识，执行时需要代码库上下文
+
+## 三层 + 协作层
+
+上述三层是**项目维度**的规范。第五层 **WORKFLOW** 是**团队维度**的规范：
+
+- 定义蔚、金克丝、艾克、凯特琳四个 Agent 的角色边界和协作方式
+- 从需求到发布的完整流程
+- SPEC 审批、代码审查、发布检查等检查清单
+
+详见 [5-WORKFLOW/README.md](5-WORKFLOW/README.md)。
 
 ## 快速开始
 
